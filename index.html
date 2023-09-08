@@ -129,7 +129,7 @@
             const now = new Date();
 
             // Get UTC time in milliseconds
-            const UTCmilliseconds = now.getMilliseconds();
+            const UTCmilliseconds = Date.now();
 
             // Set the UTC time
             utcTimeEl.textContent = UTCmilliseconds
