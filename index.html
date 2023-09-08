@@ -15,6 +15,10 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        .text-bold {
+            font-weight: bold;
+        }
+
         .profile-container {
             width: 80vw;
             display: grid;
@@ -32,20 +36,12 @@
             width: 100%;
         }
 
-        #track {
-            font-weight: bold;
-        }
-
         .date-container {
             display: flex;
             flex-direction: column;
             flex-wrap: wrap;
             gap: 5px;
             row-gap: 20px;
-        }
-
-        .date-container .date-label {
-            font-weight: bold;
         }
 
         .link-container {
@@ -56,6 +52,7 @@
         .link-container .link {
             text-decoration: none;
             color: blue;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -70,22 +67,32 @@
 
             <!-- Day of the week and date -->
             <div class="date-container">
+                <!-- Day of the week -->
                 <div>
                     <span class="date-label">Day of the week:</span>
-                    <span id="day" data-testid="currentDayOfTheWeek"></span>
+                    <span id="day" class="text-bold" data-testid="currentDayOfTheWeek"></span>
                 </div>
 
+                <!-- Current UTC Time -->
                 <div>
-                    <span class="date-label">UTC Milliseconds:</span>
-                    <span id="time" data-testid="currentUTCTime"></span>
-                    <!-- <span>ms</span> -->
+                    <span class="date-label">Current UTC Time:</span>
+                    <span id="time" class="text-bold" data-testid="currentUTCTime"></span>
                 </div>
             </div>
 
-            <p>I am</p>
-            <p data-testid="slackUserName">Emmanuel Onyejeme</p>
-            <p id="track" data-testid="myTrack">Frontend Track</p>
+            <!-- Slack Name -->
+            <p>
+                <span>Slack Name:</span>
+                <span class="text-bold" data-testid="slackUserName">Emmanuel Onyejeme</span>
+            </p>
 
+            <!-- Current Track -->
+            <p>
+                <span>My Track:</span>
+                <span id="track" class="text-bold" data-testid="myTrack">Frontend Track</span>
+            </p>
+
+            <!-- Git HUB link -->
             <div class="link-container">
                 <span>Github:</span>
                 <a class="link" data-testid="githubURL" href="https:www.github.com/HEAT-Hue">HEAT-Hue</a>
@@ -93,8 +100,8 @@
         </div>
 
         <!-- Profile picture -->
-        <img  id="profile-img" data-testid="slackDisplayImage" src="https://avatars.githubusercontent.com/u/81090171?v=4"
-            alt="Emmanuel Onyejeme">
+        <img id="profile-img" data-testid="slackDisplayImage"
+            src="https://ca.slack-edge.com/T05FFAA91JP-U05S4P82HTJ-c2ed30d697da-512" alt="Emmanuel Onyejeme">
     </div>
 
     <script>
