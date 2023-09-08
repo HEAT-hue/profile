@@ -92,7 +92,7 @@
                 <span id="track" class="text-bold" data-testid="myTrack">Frontend Track</span>
             </p>
 
-            <!-- Git HUB link -->
+            <!-- Git HUB -->
             <div class="link-container">
                 <span>Github:</span>
                 <a class="link" data-testid="githubURL" href="https:www.github.com/HEAT-Hue">HEAT-Hue</a>
@@ -114,20 +114,29 @@
         // Get current day of the week
         const currentDayofTheWeek = daysOfTheWeek[date.getDay()];
 
-        // Get UTC time in milliseconds
-        const UTCmilliseconds = date.getUTCMilliseconds();
-
         // Get the element to reder the current dat
         const dayEl = document.getElementById("day");
-
-        // Get the element to render utc time
-        const utcTimeEl = document.getElementById("time");
 
         // set the current day
         dayEl.textContent = currentDayofTheWeek
 
-        // Set the UTC time
-        utcTimeEl.textContent = UTCmilliseconds
+        // Get the element to render utc time
+        const utcTimeEl = document.getElementById("time");
+
+        // Function to update the milliseconds
+        function updateMilliseconds() {
+            // Get the current date and time
+            const now = new Date();
+
+            // Get UTC time in milliseconds
+            const UTCmilliseconds = now.getMilliseconds();
+
+            // Set the UTC time
+            utcTimeEl.textContent = UTCmilliseconds
+        }
+
+        // Update the milliseconds every millisecond
+        setInterval(updateMilliseconds, 1000);
     </script>
 
 </body>
