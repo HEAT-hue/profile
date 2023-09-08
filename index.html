@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .profile-container {
+            width: 80vw;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        #profile-info {
+            background-color: azure;
+            padding: 3rem;
+            border: 1px;
+            border-color: red;
+        }
+
+        #profile-img {
+            width: 100%;
+        }
+
+        #track {
+            font-weight: bold;
+        }
+
+        .date-container {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            gap: 5px;
+            row-gap: 20px;
+        }
+
+        .date-container .date-label {
+            font-weight: bold;
+        }
+
+        .link-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .link-container .link {
+            text-decoration: none;
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Profile Container -->
+    <div class="profile-container">
+
+        <!-- Profile Information -->
+        <div id="profile-info">
+
+            <!-- Day of the week and date -->
+            <div class="date-container">
+                <div>
+                    <span class="date-label">Day of the week:</span>
+                    <span id="day" data-testid="currentDayofTheWeek"></span>
+                </div>
+
+                <div>
+                    <span class="date-label">UTC Milliseconds:</span>
+                    <span id="time" data-testid="currentUTCTime"></span>
+                </div>
+            </div>
+
+            <p>I am</p>
+            <p data-testid="slackUserName">Emmanuel Onyejeme</p>
+            <p id="track" data-testid="myTrack">Frontend Track</p>
+
+            <div class="link-container">
+                <span>Github:</span>
+                <a class="link" href="https:www.github.com/HEAT-Hue">HEAT-Hue</a>
+            </div>
+        </div>
+
+        <!-- Profile picture -->
+        <img  id="profile-img" data-testid="slackDisplayImage" src="https://avatars.githubusercontent.com/u/81090171?v=4"
+            alt="profile picture">
+    </div>
+
+    <script>
+        // Get date instance
+        const date = new Date();
+
+        // Array of days of the week
+        const daysOfTheWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+        // Get current day of the week
+        const currentDayofTheWeek = daysOfTheWeek[date.getDay()];
+
+        // Get UTC time in milliseconds
+        const UTCmilliseconds = date.getUTCMilliseconds();
+
+        // Get the element to reder the current dat
+        const dayEl = document.getElementById("day");
+
+        // Get the element to render utc time
+        const utcTimeEl = document.getElementById("time");
+
+        // set the current day
+        dayEl.textContent = currentDayofTheWeek
+
+        // Set the UTC time
+        utcTimeEl.textContent = UTCmilliseconds
+    </script>
+
+</body>
+
+</html>
